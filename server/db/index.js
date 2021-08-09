@@ -1,20 +1,23 @@
-const mongoose = require('mongoose')
-const dotenv = require('dotenv').config()
-const MONGO_URL = process.env.MONGO_URL
-
-const connectToDB = async (req,res)=>{
-    await mongoose.connect(MONGO_URL,{
+const mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
+const PORT = process.env.PORT || 8080 ;
+const CONNECTION_URL= process.env.CONNECTION_URL ;
+const {getAllStudents,getStudentByName,deleteStudent} = require('../controllers/studentCtrl')
+const connectToDB = ()=>{
+return mongoose.connect(CONNECTION_URL,
+    {
     useNewUrlParser:true,
     useUnifiedTopology: true
     })
 }
 
-connectToDB().then(()=>{
-    console.log('MongoDB Atlas Connected')
-}).catch((err)=>{
-    console.log(`Error Message - ${err.message}`)
+connectToDB().then(()=>
+{
+    console.log('MongoDB Connected');
 })
+.catch(error=> 
+    console.error('Connection error',error.message)
+)
 
-const connection = mongoose.connection;
-
-module.exports = connection;
+const db = mongoose.connection;
+module.exports = db;
