@@ -2,7 +2,7 @@
   "name": "09.08-mern",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "setup":"npm install && cd client && npm install",
     "start": "react-scripts start client ",
