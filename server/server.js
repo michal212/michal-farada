@@ -16,8 +16,8 @@ app.use(cors());
 
 db.on('error',()=> console.log("error"))
 
-app.listen(PORT, ()=>{
-    console.log(`Server is up one port:${PORT}`);
+app.listen(process.env.PORT || 8080, ()=>{
+    console.log(`Server is up one port:8080`);
 })
 
 app.use('/school',studentRoute)
