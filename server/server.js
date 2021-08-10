@@ -21,7 +21,7 @@ app.listen(PORT, ()=>{
 
 app.use('/school',studentRoute)
 
-if (process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production'){ // NODE_ENV משתנה סביבה מובנה
     app.use(express.static(path.join(__dirname,'..client/build')))
     app.get('*',(req,res)=>{
         res.sendFile(path.join(__dirname, '../client/build','index.html'))
@@ -29,6 +29,6 @@ if (process.env.NODE_ENV === 'production'){
 }
 
 
-app.get('/', (req,res)=>{
-    res.send("Hello World")
-});
+// app.get('/', (req,res)=>{
+//     res.send("Hello World")
+// });
