@@ -22,7 +22,7 @@ app.listen(PORT, ()=>{
 app.use('/school',studentRoute)
 
 if (process.env.NODE_ENV === 'production'){ // NODE_ENV משתנה סביבה מובנה
-    app.use(express.static(path.join(__dirname,'..client/build')))
+    app.use(express.static(path.join(__dirname,'../client/build')))
     app.get('*',(req,res)=>{
         res.sendFile(path.join(__dirname, '../client/build','index.html'))
     });
