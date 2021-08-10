@@ -6,6 +6,7 @@ const db = require('./db') // index יתפוס קבצי
 const express = require('express');
 const cors = require("cors");
 const app = express();
+const path =require('path')
 
  // "dev": "concurrently --kill-others-on-fail \" npm run server \" \"npm run client\"",
 
